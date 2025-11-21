@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class OrderSizeBreakup(Document):
+class TeamwearSpecSheet(Document):
 	pass
