@@ -6,27 +6,18 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "item_code",
   "size",
+  "sleeve_type",
   "column_break_etfq",
-  "qty",
-  "section_break_jvqz",
-  "remarks"
+  "qty"
  ],
  "fields": [
-  {
-   "fieldname": "item_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Item Code",
-   "link_filters": "[[\"Item\",\"has_variants\",\"=\",0]]",
-   "options": "Item"
-  },
   {
    "fieldname": "size",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Size",
+   "link_filters": "[[\"Item Attribute Value\",\"attribute\",\"=\",\"Size\"]]",
    "options": "\n22\n24\n26\n28\n30\n32\n34\n36\n38\n40\n42\n44\n46\n48\n50\n52"
   },
   {
@@ -40,20 +31,18 @@
    "label": "Qty"
   },
   {
-   "fieldname": "section_break_jvqz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "remarks",
-   "fieldtype": "Small Text",
-   "label": "Remarks"
+   "fieldname": "sleeve_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sleeve Type",
+   "options": "H/S\nF/S"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-19 19:48:12.070932",
+ "modified": "2025-11-22 12:56:44.784361",
  "modified_by": "Administrator",
  "module": "Textile Sulotion",
  "name": "Teamwear Size Breakup",

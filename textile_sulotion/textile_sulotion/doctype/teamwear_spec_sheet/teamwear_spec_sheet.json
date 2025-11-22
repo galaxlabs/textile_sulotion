@@ -1,12 +1,54 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{customer}-{order_date}-{team_name}-{fabric}",
  "creation": "2025-11-21 11:58:48.967433",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_husb",
   "customer",
+  "team_name",
+  "column_break_nvdf",
+  "status",
+  "sales_order",
+  "column_break_mtqf",
+  "order_date",
+  "shipping_date",
+  "product_fabric_details_section",
+  "product_type",
+  "gsm",
+  "button_option",
+  "column_break_cplx",
+  "base_template",
+  "collar_type",
+  "stitch_type",
+  "column_break_ondy",
+  "fabric",
+  "zip_option",
+  "hs_item",
+  "fs_item",
+  "section_break_iuct",
+  "front_design",
+  "sleeve_design_detail",
+  "name_number_required",
+  "attachment",
+  "column_break_skvd",
+  "back_design",
+  "main_color",
+  "collar_color",
+  "border_color",
+  "logo_details",
+  "section_break_yark",
+  "size_breakup",
+  "total_qty",
+  "hs_total",
+  "fs_total",
+  "internal_workflow_section",
+  "design_approved",
+  "approval_note",
+  "note",
+  "owner_user",
   "section_break_evoe",
   "amended_from"
  ],
@@ -34,16 +76,245 @@
   {
    "fieldname": "section_break_evoe",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nvdf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yark",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "size_breakup",
+   "fieldtype": "Table",
+   "label": "Size Breakup",
+   "options": "Teamwear Size Breakup"
+  },
+  {
+   "fieldname": "team_name",
+   "fieldtype": "Data",
+   "label": "Team / Club Name"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nWaiting for Customer Approval\nApproved\nSales Order Created"
+  },
+  {
+   "fieldname": "column_break_mtqf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "product_fabric_details_section",
+   "fieldtype": "Section Break",
+   "label": "Product Fabric Details"
+  },
+  {
+   "fieldname": "product_type",
+   "fieldtype": "Select",
+   "label": "Product Type",
+   "options": "Jersey\nShorts\nTracksuit"
+  },
+  {
+   "fieldname": "column_break_cplx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ondy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Link",
+   "label": "Fabric",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Fabric\"]]",
+   "options": "Item"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "collar_type",
+   "fieldtype": "Select",
+   "label": "Collar Type",
+   "options": "Round\nV-Neck\nChinese\nCollar + Zip\nChinese + Zip\nChinese + Flap/Placket"
+  },
+  {
+   "fieldname": "zip_option",
+   "fieldtype": "Select",
+   "label": "Zip Option",
+   "options": "\nNone\nHalf Zip\nFull Zip"
+  },
+  {
+   "fieldname": "stitch_type",
+   "fieldtype": "Select",
+   "label": "Stitch Type",
+   "options": "\nSingle\nDouble"
+  },
+  {
+   "fieldname": "section_break_iuct",
+   "fieldtype": "Section Break",
+   "label": "Colors & Printing Details"
+  },
+  {
+   "fieldname": "main_color",
+   "fieldtype": "Data",
+   "label": "Main Body Color"
+  },
+  {
+   "fieldname": "column_break_skvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "name_number_required",
+   "fieldtype": "Check",
+   "label": "Player Names / Numbers"
+  },
+  {
+   "fieldname": "collar_color",
+   "fieldtype": "Data",
+   "label": "Collar Color"
+  },
+  {
+   "fieldname": "border_color",
+   "fieldtype": "Data",
+   "label": "Border / Panel Color"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Artwork / Design File"
+  },
+  {
+   "fieldname": "logo_details",
+   "fieldtype": "Small Text",
+   "label": "Logos / Emblems Placement"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Int",
+   "label": "Total Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hs_total",
+   "fieldtype": "Int",
+   "label": "Total HS Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fs_total",
+   "fieldtype": "Int",
+   "label": "Total FS Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "internal_workflow_section",
+   "fieldtype": "Section Break",
+   "label": "Internal Workflow"
+  },
+  {
+   "default": "0",
+   "fieldname": "design_approved",
+   "fieldtype": "Check",
+   "label": "Design Approved by Customer"
+  },
+  {
+   "fieldname": "approval_note",
+   "fieldtype": "Small Text",
+   "label": "Approval Notes / Remarks"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Long Text",
+   "label": "Internal Notes"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner / Coordinator",
+   "options": "User"
+  },
+  {
+   "fieldname": "sleeve_design_detail",
+   "fieldtype": "Small Text",
+   "label": "Sleeve Design / Sublimation"
+  },
+  {
+   "fieldname": "back_design",
+   "fieldtype": "Small Text",
+   "label": "Back Design / Sublimation"
+  },
+  {
+   "fieldname": "front_design",
+   "fieldtype": "Small Text",
+   "label": "Front Design / Sublimation"
+  },
+  {
+   "description": "No. of buttons",
+   "fieldname": "button_option",
+   "fieldtype": "Int",
+   "label": "Buttons"
+  },
+  {
+   "depends_on": "eval:doc.product_type",
+   "fieldname": "base_template",
+   "fieldtype": "Link",
+   "label": "Base Item Template",
+   "link_filters": "[[\"Item\",\"item_group\",\"in\",[\"JERSEY\",\"SHORTS\",\"TRACKSUIT\"]],[\"Item\",\"has_variants\",\"=\",1]]",
+   "options": "Item"
+  },
+  {
+   "default": "Today",
+   "fieldname": "order_date",
+   "fieldtype": "Date",
+   "label": "Enquiry Date"
+  },
+  {
+   "default": "Today",
+   "fieldname": "shipping_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Required Dispatch Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hs_item",
+   "fieldtype": "Link",
+   "label": "HS Variant Item",
+   "link_filters": "[[\"Item\",\"item_code\",\"like\",\"%HS%\"],[\"Item\",\"attribute\",\"=\",\"Sleeve Type\"]]",
+   "options": "Item"
+  },
+  {
+   "fieldname": "fs_item",
+   "fieldtype": "Link",
+   "label": "FS Variant Item",
+   "link_filters": "[[\"Item\",\"item_code\",\"like\",\"%FS%\"],[\"Item\",\"attribute\",\"=\",\"Sleeve Type\"]]",
+   "options": "Item"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-21 12:01:03.247782",
+ "modified": "2025-11-22 11:41:19.205801",
  "modified_by": "Administrator",
  "module": "Textile Sulotion",
  "name": "Teamwear Spec Sheet",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -57,6 +328,30 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
    "write": 1
   }
  ],

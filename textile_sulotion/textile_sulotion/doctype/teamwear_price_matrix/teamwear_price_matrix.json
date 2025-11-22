@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{fabric_type}-{sublimation_type}",
+ "creation": "2025-11-22 13:00:53.491105",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fabric_type",
+  "rate",
+  "column_break_smhn",
+  "sublimation_type",
+  "company"
+ ],
+ "fields": [
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Select",
+   "label": "Fabric Type",
+   "options": "MICRO\nSOFT\nDOTNET\nREEBOK NET\nFOOTBALL NET\nCOMBOLINE\nPOLO NET"
+  },
+  {
+   "fieldname": "column_break_smhn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sublimation_type",
+   "fieldtype": "Select",
+   "label": "Sublimation Type",
+   "options": "PLAIN\nFRONT SUBLIMATION\nTWO SIDE SUBLIMATION\nFULL SUBLIMATION"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate per Jersey"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-22 13:59:54.841492",
+ "modified_by": "Administrator",
+ "module": "Textile Sulotion",
+ "name": "Teamwear Price Matrix",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
