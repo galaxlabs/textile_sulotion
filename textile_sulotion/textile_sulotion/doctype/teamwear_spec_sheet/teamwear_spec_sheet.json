@@ -19,10 +19,14 @@
   "product_type",
   "gsm",
   "button_option",
+  "fabric_type",
+  "estimated_rate",
   "column_break_cplx",
   "base_template",
   "collar_type",
   "stitch_type",
+  "sublimation_type",
+  "estimated_amount",
   "column_break_ondy",
   "fabric",
   "zip_option",
@@ -304,13 +308,35 @@
    "label": "FS Variant Item",
    "link_filters": "[[\"Item\",\"item_code\",\"like\",\"%FS%\"],[\"Item\",\"attribute\",\"=\",\"Sleeve Type\"]]",
    "options": "Item"
+  },
+  {
+   "fieldname": "estimated_rate",
+   "fieldtype": "Currency",
+   "label": "Estimated Rate / Jersey"
+  },
+  {
+   "fieldname": "estimated_amount",
+   "fieldtype": "Currency",
+   "label": "Estimated Amount"
+  },
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Select",
+   "label": "Fabric Type",
+   "options": "MICRO\nSOFT\nDOTNET\nREEBOK NET\nFOOTBALL NET\nCOMBOLINE\nPOLO NET"
+  },
+  {
+   "fieldname": "sublimation_type",
+   "fieldtype": "Select",
+   "label": "Sublimation Type",
+   "options": "PLAIN\nFRONT SUBLIMATION\nTWO SIDE SUBLIMATION\nFULL SUBLIMATION"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-22 11:41:19.205801",
+ "modified": "2025-11-22 17:58:03.032522",
  "modified_by": "Administrator",
  "module": "Textile Sulotion",
  "name": "Teamwear Spec Sheet",

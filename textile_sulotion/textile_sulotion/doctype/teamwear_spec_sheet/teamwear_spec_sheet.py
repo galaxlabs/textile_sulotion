@@ -4,9 +4,26 @@
 import frappe
 from frappe.model.document import Document
 
+def get_price_from_matrix(fabric_type: str, sublimation_type: str):
+    if not (fabric_type and sublimation_type):
+        return None
+
+    row = frappe.db.get_value(
+        "Teamwear Price Matrix",
+        {
+            "fabric_type": fabric_type,
+            "sublimation_type": sublimation_type,
+                
+                },
+        "rate"
+    )
+    return row
+
+
 class TeamwearSpecSheet(Document):
     def validate(self):
         self.update_totals()
+        self.update_estimated_price()
 
     def update_totals(self):
         total = 0
@@ -27,6 +44,15 @@ class TeamwearSpecSheet(Document):
         self.total_qty = total
         self.hs_total = hs
         self.fs_total = fs
+    
+    def update_estimated_price(self):
+        rate = get_price_from_matrix(self.fabric_type, self.sublimation_type)
+        if rate:
+            self.estimated_rate = rate
+            self.estimated_amount = rate * (self.total_qty or 0)
+    
+
+
 
 
 @frappe.whitelist()
