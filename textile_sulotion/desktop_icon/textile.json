@@ -1,0 +1,49 @@
+{
+ "app": "textile_sulotion",
+ "creation": "2025-11-24 00:40:51.268344",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "App",
+ "idx": 0,
+ "label": "Textile",
+ "link": "",
+ "link_to": "Textile",
+ "link_type": "Workspace",
+ "modified": "2025-12-29 17:14:20.381874",
+ "modified_by": "Administrator",
+ "name": "Textile",
+ "owner": "Administrator",
+ "roles": [
+  {
+   "creation": "2025-11-24 00:40:51.268344",
+   "docstatus": 0,
+   "doctype": "Has Role",
+   "idx": 1,
+   "modified": "2025-12-29 17:14:20.381874",
+   "modified_by": "Administrator",
+   "name": "oeg8ng0g20",
+   "owner": "Administrator",
+   "parent": "Textile",
+   "parentfield": "roles",
+   "parenttype": "Desktop Icon",
+   "role": "All"
+  },
+  {
+   "creation": "2025-11-24 00:40:51.268344",
+   "docstatus": 0,
+   "doctype": "Has Role",
+   "idx": 2,
+   "modified": "2025-12-29 17:14:20.381874",
+   "modified_by": "Administrator",
+   "name": "rvlvirei5m",
+   "owner": "Administrator",
+   "parent": "Textile",
+   "parentfield": "roles",
+   "parenttype": "Desktop Icon",
+   "role": "Administrator"
+  }
+ ],
+ "sidebar": "Textile Sulotion",
+ "standard": 1
+}
