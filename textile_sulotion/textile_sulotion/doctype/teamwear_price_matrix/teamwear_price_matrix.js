@@ -11,7 +11,7 @@ frappe.ui.form.on('Teamwear Price Matrix', {
     if (frappe.user.has_role('System Manager')) {
       frm.add_custom_button(__('Generate Default Matrix'), function () {
         frappe.call({
-          method: 'textile_sulotion.textile_sulotion.teamwear_price_matrix_utils.generate_default_teamwear_price_matrix',
+          method: "textile_sulotion.textile_sulotion.utils.teamwear_price_matrix.generate_teamwear_price_matrix"
           freeze: true,
           freeze_message: __('Generating teamwear price matrix...'),
           callback: function (r) {

@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-28 07:50:53.391395",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "player_name",
+  "jersey_number",
+  "size",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "player_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Player Name"
+  },
+  {
+   "fieldname": "jersey_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Jersey Number"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Size"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-28 07:56:50.252736",
+ "modified_by": "Administrator",
+ "module": "Textile Sulotion",
+ "name": "Player List",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

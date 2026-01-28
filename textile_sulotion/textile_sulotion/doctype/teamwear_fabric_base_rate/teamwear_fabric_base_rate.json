@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-28 14:54:29.046084",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "fabric",
+  "plain_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "plain_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Plain Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fabric",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Fabric\"]]",
+   "options": "Item",
+   "reqd": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-28 15:38:06.655179",
+ "modified_by": "Administrator",
+ "module": "Textile Sulotion",
+ "name": "Teamwear Fabric Base Rate",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

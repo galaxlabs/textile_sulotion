@@ -1,4 +1,4 @@
-# /home/xg/frappe-bench/apps/textile_sulotion/textile_sulotion/textile_sulotion/teamwear_bom_utils.py
+# /home/dg/dg-b/apps/textile_sulotion/textile_sulotion/textile_sulotion/utils/teamwear_bom.py
 import frappe
 
 # Map product_type / item_group → default fabric & thread consumption (per piece)

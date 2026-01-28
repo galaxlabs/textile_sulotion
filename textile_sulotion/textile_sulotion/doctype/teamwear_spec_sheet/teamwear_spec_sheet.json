@@ -1,37 +1,43 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{customer}-{order_date}-{team_name}-{fabric}",
  "creation": "2025-11-21 11:58:48.967433",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_husb",
   "customer",
+  "cust_abbr",
   "team_name",
+  "company",
   "column_break_nvdf",
   "status",
+  "approved_by",
   "sales_order",
   "column_break_mtqf",
   "order_date",
   "shipping_date",
+  "order_priority",
+  "job_status",
   "product_fabric_details_section",
   "product_type",
   "gsm",
   "button_option",
-  "fabric_type",
-  "estimated_rate",
   "column_break_cplx",
   "base_template",
   "collar_type",
+  "collar_item",
   "stitch_type",
   "sublimation_type",
-  "estimated_amount",
   "column_break_ondy",
   "fabric",
   "zip_option",
   "hs_item",
   "fs_item",
+  "section_break_ktwx",
+  "estimated_rate",
+  "column_break_gjnx",
+  "estimated_amount",
   "section_break_iuct",
   "front_design",
   "sleeve_design_detail",
@@ -45,9 +51,14 @@
   "logo_details",
   "section_break_yark",
   "size_breakup",
+  "player_list",
+  "import_players_btn",
+  "player_list_excel",
+  "section_break_holn",
   "total_qty",
-  "hs_total",
+  "column_break_adri",
   "fs_total",
+  "hs_total",
   "internal_workflow_section",
   "design_approved",
   "approval_note",
@@ -112,6 +123,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "\"eval:doc.status=='Sales Order Created'\"",
    "fieldname": "sales_order",
    "fieldtype": "Link",
    "label": "Sales Order",
@@ -141,23 +153,25 @@
    "fieldname": "fabric",
    "fieldtype": "Link",
    "label": "Fabric",
-   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Fabric\"]]",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Fabric\"],[\"Item\",\"has_variants\",\"=\",0]]",
    "options": "Item"
   },
   {
    "fieldname": "gsm",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "GSM"
   },
   {
    "fieldname": "collar_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Collar Type",
-   "options": "Round\nV-Neck\nChinese\nCollar + Zip\nChinese + Zip\nChinese + Flap/Placket"
+   "options": "Collar Type"
   },
   {
    "fieldname": "zip_option",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Zip Option",
    "options": "\nNone\nHalf Zip\nFull Zip"
   },
@@ -289,11 +303,13 @@
   },
   {
    "default": "Today",
+   "depends_on": "\"eval:doc.status=='Approved'\"",
    "fieldname": "shipping_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Required Dispatch Date",
-   "reqd": 1
+   "mandatory_depends_on": "\"eval:doc.status=='Approved'\"",
+   "read_only_depends_on": "\"eval:doc.status=='Approved'\""
   },
   {
    "fieldname": "hs_item",
@@ -312,35 +328,106 @@
   {
    "fieldname": "estimated_rate",
    "fieldtype": "Currency",
-   "label": "Estimated Rate / Jersey"
+   "label": "Estimated Rate / Jersey",
+   "read_only": 1
   },
   {
    "fieldname": "estimated_amount",
    "fieldtype": "Currency",
-   "label": "Estimated Amount"
-  },
-  {
-   "fieldname": "fabric_type",
-   "fieldtype": "Select",
-   "label": "Fabric Type",
-   "options": "MICRO\nSOFT\nDOTNET\nREEBOK NET\nFOOTBALL NET\nCOMBOLINE\nPOLO NET"
+   "label": "Estimated Amount",
+   "read_only": 1
   },
   {
    "fieldname": "sublimation_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Sublimation Type",
-   "options": "PLAIN\nFRONT SUBLIMATION\nTWO SIDE SUBLIMATION\nFULL SUBLIMATION"
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Sublimation\"],[\"Item\",\"has_variants\",\"=\",0]]",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_holn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_adri",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cust_abbr",
+   "fieldtype": "Read Only",
+   "label": "Customer Abbr",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ktwx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gjnx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "player_list",
+   "fieldtype": "Table",
+   "label": "Player List",
+   "options": "Player List"
+  },
+  {
+   "depends_on": "\"eval:doc.status=='Approved'\"",
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By ",
+   "mandatory_depends_on": "\"eval:doc.status=='Approved'\"",
+   "options": "User"
+  },
+  {
+   "fieldname": "order_priority",
+   "fieldtype": "Select",
+   "label": "Order Priority",
+   "options": "Regular\nEmergency"
+  },
+  {
+   "fieldname": "job_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Job Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "import_players_btn",
+   "fieldtype": "Button",
+   "label": "Import Players from Excel",
+   "mandatory_depends_on": "eval: doc.name_number_required == 1"
+  },
+  {
+   "fieldname": "player_list_excel",
+   "fieldtype": "Attach",
+   "label": "Player List Excel"
+  },
+  {
+   "fieldname": "collar_item",
+   "fieldtype": "Link",
+   "label": "Collar Item",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-22 17:58:03.032522",
+ "modified": "2026-01-28 16:16:00.445123",
  "modified_by": "Administrator",
  "module": "Textile Sulotion",
  "name": "Teamwear Spec Sheet",
- "naming_rule": "Expression",
+ "naming_rule": "By script",
  "owner": "Administrator",
  "permissions": [
   {

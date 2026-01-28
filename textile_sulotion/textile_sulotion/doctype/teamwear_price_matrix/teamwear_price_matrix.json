@@ -1,12 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{fabric_type}-{sublimation_type}",
+ "autoname": "format:{company}-{fabric}-{sublimation_type}",
  "creation": "2025-11-22 13:00:53.491105",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "fabric_type",
+  "fabric",
   "rate",
   "column_break_smhn",
   "sublimation_type",
@@ -14,20 +14,16 @@
  ],
  "fields": [
   {
-   "fieldname": "fabric_type",
-   "fieldtype": "Select",
-   "label": "Fabric Type",
-   "options": "MICRO\nSOFT\nDOTNET\nREEBOK NET\nFOOTBALL NET\nCOMBOLINE\nPOLO NET"
-  },
-  {
    "fieldname": "column_break_smhn",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "sublimation_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Sublimation Type",
-   "options": "PLAIN\nFRONT SUBLIMATION\nTWO SIDE SUBLIMATION\nFULL SUBLIMATION"
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Sublimation\"],[\"Item\",\"has_variants\",\"=\",0]]",
+   "options": "Item",
+   "read_only_depends_on": "eval: !doc.__islocal"
   },
   {
    "fieldname": "rate",
@@ -35,16 +31,25 @@
    "label": "Rate per Jersey"
   },
   {
+   "default": "P3",
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Link",
+   "label": "Fabric Type",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Fabric\"],[\"Item\",\"has_variants\",\"=\",0]]",
+   "options": "Item",
+   "read_only_depends_on": "eval: !doc.__islocal"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-22 13:59:54.841492",
+ "modified": "2026-01-28 16:13:21.698373",
  "modified_by": "Administrator",
  "module": "Textile Sulotion",
  "name": "Teamwear Price Matrix",
